@@ -20,7 +20,7 @@ Patch0:		sqlzma2u-3.3.patch
 Patch1:		squashfs3.3-nolzma.patch
 # from CVS, fix hang when dealing with sparse files
 Patch2:		squashfs3.3-sparse.patch
-BuildRequires:	lzma-devel
+BuildRequires:	liblzmadec-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
