@@ -1,7 +1,7 @@
 %define sqname	squashfs
 %define sqver	3.3
 %undefine sqrelease
-%define rel 2
+%define rel 3
 %define release	%mkrel %{?sqrelease:1.%{sqrelease}.}%{rel}
 %define distname %{sqname}%{sqver}%{?sqrelease:-%{sqrelease}}
 %define	Summary	Utilities for the creation of compressed squashfs images
