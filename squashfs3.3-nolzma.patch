@@ -1,0 +1,47 @@
+--- squashfs3.3/squashfs-tools/mksquashfs.c.nolzma	2007-11-14 15:20:26.000000000 +0100
++++ squashfs3.3/squashfs-tools/mksquashfs.c	2007-11-14 15:23:35.000000000 +0100
+@@ -116,7 +116,7 @@ int block_offset;
+ int file_count = 0, sym_count = 0, dev_count = 0, dir_count = 0, fifo_count = 0, sock_count = 0;
+ struct sqlzma_un un;
+ struct sqlzma_opts sqlzma_opts = {
+-	.try_lzma	= 1,
++	.try_lzma	= 0,
+ 	.dicsize	= SQUASHFS_FILE_SIZE
+ };
+ 
+@@ -3264,7 +3264,7 @@ int main(int argc, char *argv[])
+ 	be = FALSE;
+ #endif
+ 
+-	un.un_lzma = 1;
++	un.un_lzma = 0;
+ 	block_log = slog(block_size);
+ 	if(argc > 1 && strcmp(argv[1], "-version") == 0) {
+ 		VERSION();
+@@ -3449,9 +3449,9 @@ int main(int argc, char *argv[])
+ 				exit(1);
+ 			}	
+ 			root_name = argv[i];
+-		} else if(strcmp(argv[i], "-nolzma") == 0) {
+-			un.un_lzma = 0;
+-			sqlzma_opts.try_lzma = 0;
++ 		} else if(strcmp(argv[i], "-lzma") == 0) {
++ 			un.un_lzma = 1;
++			sqlzma_opts.try_lzma = 1;
+ 		} else if(strcmp(argv[i], "-version") == 0) {
+ 			VERSION();
+ 		} else {
+@@ -3501,12 +3501,12 @@ printOptions:
+ 			ERROR("-ef <exclude_file>\tlist of exclude dirs/files.  One per line\n");
+ 			ERROR("-wildcards\t\tAllow extended shell wildcards (globbing) to be used in\n\t\t\texclude dirs/files\n");
+ 			ERROR("-regex\t\t\tAllow POSIX regular expressions to be used in exclude\n\t\t\tdirs/files\n");
++			ERROR("-lzma\t\t\tuse LZMA compression\n");
+ 			ERROR("-lzmadic <dic_size>\tset the LZMA dictionary"
+ 			      " size to <dic_size>\n"
+ 			      "\t\t\tDefault value always follow the block"
+ 			      " size\n"
+ 			      "\t\t\tUse this alone or AFTER -b option\n");
+-			ERROR("-nolzma\t\t\tnever try LZMA compression\n");
+ 			exit(1);
+ 		}
+ 	}
