@@ -1,4 +1,5 @@
 %define sqname squashfs
+%define debug_package %{nil}
 
 Name:		%{sqname}3-tools
 Version:	3.3
