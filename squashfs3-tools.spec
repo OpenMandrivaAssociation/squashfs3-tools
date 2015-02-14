@@ -30,7 +30,7 @@ cp %{SOURCE1} %{SOURCE2} squashfs-tools
 
 %build
 %setup_compile_flags
-%make -C squashfs-tools Sqlzma=. LzmaAlone=%{_libdir} LzmaC=%{_libdir} CC=%{__cc}
+%make -C squashfs-tools Sqlzma=. LzmaAlone=%{_libdir} LzmaC=%{_libdir} CC=gcc
 
 %install
 install -d %{buildroot}%{_bindir}
