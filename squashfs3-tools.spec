@@ -3,7 +3,7 @@
 
 Name:		%{sqname}3-tools
 Version:	3.3
-Release:	16
+Release:	17
 Summary:	Utilities for the creation of compressed squashfs images
 License:	GPLv2+
 Group:		File tools
