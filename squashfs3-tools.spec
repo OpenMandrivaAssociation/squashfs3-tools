@@ -7,7 +7,7 @@ Release:	17
 Summary:	Utilities for the creation of compressed squashfs images
 License:	GPLv2+
 Group:		File tools
-URL:		http://squashfs.sourceforge.net/
+URL:		https://squashfs.sourceforge.net/
 Source0:	%{sqname}%{version}.tgz
 Source1:	sqlzma.h
 Source2:	sqmagic.h
